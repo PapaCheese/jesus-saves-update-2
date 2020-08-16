@@ -1,0 +1,273 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://JesusSaves/assets/art/skill/Icon2.png" type="Texture" id=1]
+[ext_resource path="res://JesusSaves/assets/fonts/font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://JesusSaves/assets/art/ui/Energybar_empty.png" type="Texture" id=3]
+[ext_resource path="res://JesusSaves/assets/art/ui/Energybar_full.png" type="Texture" id=4]
+[ext_resource path="res://JesusSaves/assets/art/ui/Healthbar_full.png" type="Texture" id=5]
+[ext_resource path="res://JesusSaves/assets/art/ui/Healthbar_empty.png" type="Texture" id=6]
+[ext_resource path="res://JesusSaves/assets/art/halo.png" type="Texture" id=7]
+[ext_resource path="res://JesusSaves/assets/art/skill/Icon8.png" type="Texture" id=8]
+[ext_resource path="res://JesusSaves/assets/art/skill/Icon5.png" type="Texture" id=9]
+[ext_resource path="res://JesusSaves/assets/art/weapons/goldcross.png" type="Texture" id=10]
+[ext_resource path="res://JesusSaves/assets/audio/jesusStrike.ogg" type="AudioStream" id=11]
+[ext_resource path="res://JesusSaves/assets/art/skill/Icon4.png" type="Texture" id=12]
+[ext_resource path="res://JesusSaves/assets/art/skill/frame.png" type="Texture" id=13]
+[ext_resource path="res://JesusSaves/src/Player/BoxCam2d.gd" type="Script" id=14]
+[ext_resource path="res://JesusSaves/src/Spell/Divinity.gd" type="Script" id=15]
+[ext_resource path="res://JesusSaves/src/Level/Level1.tscn" type="PackedScene" id=16]
+[ext_resource path="res://JesusSaves/src/GUI/Buttons/QuitGame.tscn" type="PackedScene" id=17]
+[ext_resource path="res://JesusSaves/src/Player/Player.tscn" type="PackedScene" id=18]
+[ext_resource path="res://JesusSaves/src/Core/MainScene.gd" type="Script" id=19]
+
+
+
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_strength = 1.1
+glow_hdr_threshold = 0.7
+glow_bicubic_upscale = true
+adjustment_enabled = true
+adjustment_brightness = 0.8
+adjustment_contrast = 1.1
+
+[sub_resource type="Animation" id=2]
+length = 0.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.08, 0.4 ),
+"transitions": PoolRealArray( 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 3 ), Vector2( 0, 0 ) ]
+}
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource( 19 )
+
+[node name="BoxCam2D" type="Camera2D" parent="."]
+script = ExtResource( 14 )
+player = NodePath("../WorldEnvironment/Player")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -10.0
+autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="Level1" parent="WorldEnvironment" instance=ExtResource( 16 )]
+
+[node name="Player" parent="WorldEnvironment" instance=ExtResource( 18 )]
+position = Vector2( -1267, 228 )
+
+[node name="GUI" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="Health" type="TextureProgress" parent="GUI"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 364.0
+margin_bottom = 38.0
+max_value = 2.0
+value = 1.0
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": "Health"
+}
+
+[node name="Divinity" type="TextureProgress" parent="GUI"]
+margin_left = 15.0
+margin_top = 37.0
+margin_right = 271.0
+margin_bottom = 77.0
+max_value = 2.0
+value = 2.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": "Divinity"
+}
+
+[node name="Halos" type="Label" parent="GUI"]
+margin_left = 42.0
+margin_top = 56.0
+margin_right = 105.0
+margin_bottom = 76.0
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="GUI/Halos"]
+position = Vector2( -15, 10 )
+texture = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GUI/Halos"]
+anims/gain = SubResource( 2 )
+
+[node name="Damage" type="Label" parent="GUI"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 28.0
+margin_top = -32.0
+margin_right = 89.0
+margin_bottom = -12.0
+custom_fonts/font = ExtResource( 2 )
+text = "Damage: 10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpellDamage" type="Label" parent="GUI"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 106.0
+margin_top = -32.0
+margin_right = 200.0
+margin_bottom = -12.0
+custom_fonts/font = ExtResource( 2 )
+text = "Spell Damage: 10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LightningSpell" type="TextureRect" parent="GUI"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 27.0
+margin_top = -110.0
+margin_right = 91.0
+margin_bottom = -46.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Frame" type="Sprite" parent="GUI/LightningSpell"]
+visible = false
+show_behind_parent = true
+position = Vector2( 32, 32 )
+texture = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="GUI/LightningSpell"]
+margin_left = 7.0
+margin_top = 3.0
+margin_right = 47.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 2 )
+text = "1"
+
+[node name="FireSpell" type="TextureRect" parent="GUI"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 101.0
+margin_top = -110.0
+margin_right = 165.0
+margin_bottom = -46.0
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Frame" type="Sprite" parent="GUI/FireSpell"]
+visible = false
+show_behind_parent = true
+position = Vector2( 32, 32 )
+texture = ExtResource( 13 )
+
+[node name="Label2" type="Label" parent="GUI/FireSpell"]
+margin_left = 7.0
+margin_top = 3.0
+margin_right = 47.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 2 )
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HolySpell" type="TextureRect" parent="GUI"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 175.0
+margin_top = -110.0
+margin_right = 239.0
+margin_bottom = -46.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Frame" type="Sprite" parent="GUI/HolySpell"]
+visible = false
+show_behind_parent = true
+position = Vector2( 32, 32 )
+texture = ExtResource( 13 )
+
+[node name="Label3" type="Label" parent="GUI/HolySpell"]
+margin_left = 7.0
+margin_top = 3.0
+margin_right = 47.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 2 )
+text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IceSpell" type="TextureRect" parent="GUI"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 249.0
+margin_top = -110.0
+margin_right = 313.0
+margin_bottom = -46.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Frame" type="Sprite" parent="GUI/IceSpell"]
+visible = false
+show_behind_parent = true
+position = Vector2( 32, 32 )
+texture = ExtResource( 13 )
+
+[node name="Label4" type="Label" parent="GUI/IceSpell"]
+margin_left = 8.0
+margin_top = 3.0
+margin_right = 48.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 2 )
+text = "4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitGame" parent="GUI" instance=ExtResource( 17 )]
+
+[node name="Lazarus" type="Sprite" parent="GUI"]
+visible = false
+position = Vector2( 27, 88 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )

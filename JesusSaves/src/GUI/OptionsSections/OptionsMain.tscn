@@ -1,0 +1,274 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://JesusSaves/src/GUI/OptionsSections/OptionsMain.gd" type="Script" id=1]
+[ext_resource path="res://JesusSaves/assets/styles/DarkerPanel.tres" type="StyleBox" id=2]
+[ext_resource path="res://JesusSaves/assets/fonts/m5x7_64.tres" type="DynamicFont" id=3]
+[ext_resource path="res://JesusSaves/src/GUI/Buttons/OptionsToggle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://JesusSaves/src/GUI/Buttons/OptionsButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://JesusSaves/assets/fonts/m5x7_32.tres" type="DynamicFont" id=6]
+[ext_resource path="res://JesusSaves/src/UserInterface/OptionsMenu/OptionsSlider.tscn" type="PackedScene" id=7]
+[ext_resource path="res://JesusSaves/src/GUI/OptionsSections/Languages.gd" type="Script" id=8]
+[ext_resource path="res://JesusSaves/src/UserInterface/OptionsMenu/DefaultButton.tscn" type="PackedScene" id=9]
+
+
+
+[node name="OptionsMain" type="VBoxContainer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -480.0
+margin_right = 480.0
+margin_bottom = 540.0
+custom_constants/separation = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 960.0
+margin_bottom = 480.0
+rect_min_size = Vector2( 0, 106 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ResolutionPanel" type="Panel" parent="HBoxContainer"]
+margin_right = 478.0
+margin_bottom = 480.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ResolutionPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 3.05176e-05
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resolution" type="Label" parent="HBoxContainer/ResolutionPanel/VBoxContainer"]
+margin_top = 199.0
+margin_right = 478.0
+margin_bottom = 250.0
+size_flags_horizontal = 5
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+text = "Resolution"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ResolutionPanel/VBoxContainer"]
+margin_left = 191.0
+margin_top = 254.0
+margin_right = 287.0
+margin_bottom = 320.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ResolutionPanel/VBoxContainer/HBoxContainer"]
+margin_right = 92.0
+margin_bottom = 66.0
+size_flags_vertical = 3
+
+[node name="Fullscreen" parent="HBoxContainer/ResolutionPanel/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
+margin_right = 92.0
+margin_bottom = 16.0
+
+[node name="Borderless" parent="HBoxContainer/ResolutionPanel/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 20.0
+margin_right = 92.0
+margin_bottom = 36.0
+text = "Borderless"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ResolutionPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 92.0
+margin_bottom = 66.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScaleDown" parent="HBoxContainer/ResolutionPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+margin_top = 5.0
+margin_bottom = 21.0
+
+[node name="Scale" type="Label" parent="HBoxContainer/ResolutionPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 20.0
+margin_right = 72.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 48, 0 )
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 6 )
+text = "Scale"
+align = 1
+
+[node name="ScaleUp" parent="HBoxContainer/ResolutionPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+margin_left = 76.0
+margin_top = 5.0
+margin_right = 92.0
+margin_bottom = 21.0
+
+[node name="Margin" type="Control" parent="HBoxContainer/ResolutionPanel/VBoxContainer/HBoxContainer"]
+margin_left = 96.0
+margin_right = 96.0
+margin_bottom = 66.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VolumePanel" type="Panel" parent="HBoxContainer"]
+margin_left = 482.0
+margin_right = 960.0
+margin_bottom = 480.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VolumePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 3.05176e-05
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Volume" type="Label" parent="HBoxContainer/VolumePanel/VBoxContainer"]
+margin_right = 478.0
+margin_bottom = 51.0
+size_flags_horizontal = 5
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+text = "Volume"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VolumePanel/VBoxContainer"]
+margin_top = 55.0
+margin_right = 478.0
+margin_bottom = 519.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 4
+custom_constants/margin_left = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VolumePanel/VBoxContainer/MarginContainer"]
+margin_left = 5.0
+margin_right = 474.0
+margin_bottom = 464.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VolumePanel/VBoxContainer/MarginContainer/HBoxContainer"]
+margin_right = 469.0
+margin_bottom = 464.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Master" parent="HBoxContainer/VolumePanel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 208.0
+margin_right = 469.0
+margin_bottom = 221.0
+size_flags_horizontal = 3
+
+[node name="Music" parent="HBoxContainer/VolumePanel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 225.0
+margin_right = 469.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+
+[node name="SFX" parent="HBoxContainer/VolumePanel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 242.0
+margin_right = 469.0
+margin_bottom = 255.0
+size_flags_horizontal = 3
+
+[node name="LanguagePanel" type="Panel" parent="HBoxContainer"]
+visible = false
+margin_left = 642.0
+margin_right = 960.0
+margin_bottom = 441.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 2 )
+script = ExtResource( 8 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LanguagePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 3.05176e-05
+margin_bottom = 3.05176e-05
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Languages" type="Label" parent="HBoxContainer/LanguagePanel/VBoxContainer"]
+margin_right = 318.0
+margin_bottom = 51.0
+size_flags_horizontal = 5
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+text = "Languages"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LanguagePanel/VBoxContainer"]
+margin_top = 55.0
+margin_right = 318.0
+margin_bottom = 441.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/LanguagePanel/VBoxContainer/MarginContainer"]
+margin_left = 5.0
+margin_top = 4.0
+margin_right = 314.0
+margin_bottom = 382.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_top = 481.0
+margin_right = 960.0
+margin_bottom = 540.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 447.0
+margin_right = 513.0
+margin_bottom = 59.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+custom_constants/separation = 1
+
+[node name="Languages" parent="MarginContainer/VBoxContainer" instance=ExtResource( 9 )]
+margin_top = -1.0
+margin_right = 66.0
+margin_bottom = 18.526
+text = "Languages"
+
+[node name="Controls" parent="MarginContainer/VBoxContainer" instance=ExtResource( 9 )]
+margin_top = 19.0
+margin_right = 66.0
+margin_bottom = 38.526
+text = "Controls"
+
+[node name="Back" parent="MarginContainer/VBoxContainer" groups=[
+"FocusGroup",
+"OptionsMain",
+] instance=ExtResource( 9 )]
+margin_top = 39.0
+margin_right = 66.0
+margin_bottom = 58.526
+text = "Back"
+[connection signal="pressed" from="HBoxContainer/ResolutionPanel/VBoxContainer/HBoxContainer/VBoxContainer/Fullscreen" to="." method="_on_Fullscreen_pressed"]
+[connection signal="pressed" from="HBoxContainer/ResolutionPanel/VBoxContainer/HBoxContainer/VBoxContainer/Borderless" to="." method="_on_Borderless_pressed"]
+[connection signal="pressed" from="HBoxContainer/ResolutionPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/ScaleDown" to="." method="_on_ScaleDown_pressed"]
+[connection signal="pressed" from="HBoxContainer/ResolutionPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/ScaleUp" to="." method="_on_ScaleUp_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Languages" to="." method="_on_Languages_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Controls" to="." method="_on_Controls_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]

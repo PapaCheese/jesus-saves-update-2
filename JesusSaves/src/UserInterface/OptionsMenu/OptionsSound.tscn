@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://JesusSaves/src/UserInterface/OptionsMenu/OptionsSound.gd" type="Script" id=1]
+[ext_resource path="res://JesusSaves/assets/fonts/m5x7_64.tres" type="DynamicFont" id=2]
+[ext_resource path="res://JesusSaves/src/UserInterface/OptionsMenu/OptionsSlider.tscn" type="PackedScene" id=3]
+
+[node name="OptionsSound" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 960.0
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 2 )
+text = "SOUND"
+align = 1
+
+[node name="Master" parent="." instance=ExtResource( 3 )]
+margin_top = 55.0
+margin_right = 960.0
+margin_bottom = 68.0
+
+[node name="ScaleName" parent="Master" index="0"]
+margin_right = 38.0
+text = "MASTER"
+
+[node name="HSlider" parent="Master" index="1"]
+margin_left = 42.0
+margin_right = 960.0
+
+[node name="Music" parent="." instance=ExtResource( 3 )]
+margin_top = 72.0
+margin_right = 960.0
+margin_bottom = 85.0
+
+[node name="ScaleName" parent="Music" index="0"]
+text = "MUSIC"
+
+[node name="HSlider" parent="Music" index="1"]
+margin_right = 960.0
+
+[node name="SFX" parent="." instance=ExtResource( 3 )]
+margin_top = 89.0
+margin_right = 960.0
+margin_bottom = 102.0
+
+[node name="ScaleName" parent="SFX" index="0"]
+text = "SFX"
+
+[node name="HSlider" parent="SFX" index="1"]
+margin_right = 960.0
+[connection signal="value_changed" from="Master/HSlider" to="." method="_on_Master_value_changed"]
+[connection signal="value_changed" from="Music/HSlider" to="." method="_on_Music_value_changed"]
+[connection signal="value_changed" from="SFX/HSlider" to="." method="_on_SFX_value_changed"]
+
+[editable path="Master"]
+
+[editable path="Music"]
+
+[editable path="SFX"]
