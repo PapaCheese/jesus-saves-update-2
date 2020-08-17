@@ -2,7 +2,7 @@ extends Node
 
 const Player = preload("../Player/Player.gd")
 
-onready var player: Player = $"/root/MainScene/WorldEnvironment/Player"
+onready var player: Player = $"/root/Game/Levels/Player"
 
 func _physics_process(delta: float) -> void:
 	if !player:

@@ -6,12 +6,6 @@
 [ext_resource path="res://JesusSaves/src/Enemy/Zombie/Zombie.gd" type="Script" id=4]
 [ext_resource path="res://JesusSaves/src/Core/FloorArea.tscn" type="PackedScene" id=5]
 
-
-
-
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 29 )
 

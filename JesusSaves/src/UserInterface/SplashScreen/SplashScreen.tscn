@@ -295,7 +295,7 @@ offset = Vector2( -16.5374, 0 )
 [node name="Jesus" type="AnimatedSprite" parent="Splash"]
 position = Vector2( 472, 465 )
 frames = SubResource( 7 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="JesusSaves" type="Label" parent="Splash"]

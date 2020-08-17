@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://JesusSaves/src/Core/Game.gd" type="Script" id=1]
 [ext_resource path="res://JesusSaves/src/GUI/HUD/GUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://JesusSaves/src/UserInterface/PauseMenu/PauseMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://JesusSaves/src/Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://JesusSaves/src/UserInterface/SplashScreen/SplashScreen.tscn" type="PackedScene" id=5]
 [ext_resource path="res://JesusSaves/src/GUI/FadeLayer/FadeLayer.tscn" type="PackedScene" id=6]
 
@@ -17,6 +18,8 @@ script = ExtResource( 1 )
 [node name="Levels" type="Node2D" parent="."]
 
 [node name="SplashScreen" parent="Levels" instance=ExtResource( 5 )]
+
+[node name="Player" parent="Levels" instance=ExtResource( 4 )]
 
 [node name="GUI" parent="." instance=ExtResource( 2 )]
 

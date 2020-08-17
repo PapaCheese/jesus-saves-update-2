@@ -44,7 +44,12 @@ func _physics_process(delta: float) -> void:
 		player.linear_velocity.y = -Player.JUMP_SPEED
 
 func _on_player_respawn() -> void:
-	player.global_position = player.last_checkpoint
+	if player.last_checkpoint != Vector2():
+		player.global_position = player.last_checkpoint
+	else:
+		for c in $"/root/Game/Levels".get_children():
+			if c.is_in_group("Level"):
+				player.global_position = c.get_node("SpawnPosition").global_position
 
 func _on_player_change_facing(direction: int) -> void:
 	match direction:

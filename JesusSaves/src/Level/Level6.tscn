@@ -34,15 +34,9 @@
 [ext_resource path="res://JesusSaves/src/Prop/TornFlag.tscn" type="PackedScene" id=32]
 [ext_resource path="res://JesusSaves/assets/art/tileset/grass/signs/2_2.png" type="Texture" id=34]
 
-
-
-
-
-
-
-
-
-[node name="Level6" type="Node2D"]
+[node name="Level6" type="Node2D" groups=[
+"Level",
+]]
 
 [node name="SpawnPosition" type="Node2D" parent="."]
 position = Vector2( -388, -9 )
@@ -176,11 +170,11 @@ texture = ExtResource( 28 )
 
 [node name="Flag" parent="Props" instance=ExtResource( 29 )]
 position = Vector2( 632, -8 )
-frame = 2
+frame = 1
 
 [node name="Flag2" parent="Props" instance=ExtResource( 29 )]
 position = Vector2( 2744, -40 )
-frame = 2
+frame = 1
 
 [node name="2_3" type="Sprite" parent="Props"]
 position = Vector2( 3952, -1136 )
@@ -188,10 +182,11 @@ texture = ExtResource( 34 )
 
 [node name="AnimatedSprite4" parent="Props" instance=ExtResource( 32 )]
 position = Vector2( 4424, 32 )
-frame = 3
+frame = 0
 
 [node name="AnimatedSprite5" parent="Props" instance=ExtResource( 32 )]
 position = Vector2( 4696, 32 )
+frame = 5
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -396,10 +391,11 @@ position = Vector2( 4557, 457 )
 
 [node name="CrossSteel" parent="Weapons" instance=ExtResource( 9 )]
 position = Vector2( 1856, -128 )
-damage = 45
+damage = 15.0
 
 [node name="CrossGoldSharp" parent="Weapons" instance=ExtResource( 10 )]
 position = Vector2( 48, 0 )
+damage = 15.0
 
 [node name="SpellDamage" type="Node2D" parent="."]
 

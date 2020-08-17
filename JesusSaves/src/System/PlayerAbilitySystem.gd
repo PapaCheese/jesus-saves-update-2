@@ -11,7 +11,7 @@ func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	EventBus.connect("player_gain_skill", self, "_on_player_gain_skill")
 	# warning-ignore:return_value_discarded
-	EventBus.connect("player_gain_spell", self, "_on_player_gain_spell")
+	EventBus.connect("player_gain_spell_damage", self, "_on_player_gain_spell_damage")
 	# warning-ignore:return_value_discarded
 	EventBus.connect("player_gain_points", self, "_on_player_gain_points")
 	# warning-ignore:return_value_discarded

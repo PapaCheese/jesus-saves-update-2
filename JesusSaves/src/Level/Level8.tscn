@@ -29,14 +29,9 @@
 [ext_resource path="res://JesusSaves/src/Prop/TornFlag.tscn" type="PackedScene" id=27]
 [ext_resource path="res://JesusSaves/src/Prop/RedYellowFlag.tscn" type="PackedScene" id=28]
 
-
-
-
-
-
-
-
-[node name="Level8" type="Node2D"]
+[node name="Level8" type="Node2D" groups=[
+"Level",
+]]
 
 [node name="SpawnPosition" type="Node2D" parent="."]
 position = Vector2( -342, -30 )
@@ -164,17 +159,19 @@ texture = ExtResource( 23 )
 
 [node name="Flag" parent="Props" instance=ExtResource( 24 )]
 position = Vector2( 1992, -264 )
-frame = 1
+frame = 7
 
 [node name="AnimatedSprite4" parent="Props" instance=ExtResource( 27 )]
 position = Vector2( 5416, -960 )
-frame = 5
+frame = 3
 
 [node name="AnimatedSprite2" parent="Props" instance=ExtResource( 28 )]
 position = Vector2( 3312, -768 )
+frame = 2
 
 [node name="AnimatedSprite3" parent="Props" instance=ExtResource( 28 )]
 position = Vector2( 6672, -544 )
+frame = 2
 
 [node name="Enemies" type="Node2D" parent="."]
 

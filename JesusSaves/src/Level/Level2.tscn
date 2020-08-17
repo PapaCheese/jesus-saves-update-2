@@ -172,7 +172,9 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 } ]
 0/z_index = 0
 
-[node name="Level2" type="Node2D"]
+[node name="Level2" type="Node2D" groups=[
+"Level",
+]]
 
 [node name="SpawnPosition" type="Node2D" parent="."]
 position = Vector2( -708, 297 )
@@ -304,35 +306,33 @@ position = Vector2( 12280, -608 )
 
 [node name="AnimatedSprite2" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 5109, -672 )
-frame = 3
+frame = 5
 
 [node name="AnimatedSprite3" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 5279, -671 )
-frame = 3
+frame = 5
 
 [node name="AnimatedSprite11" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 11136, -1056 )
-frame = 3
+frame = 5
 
 [node name="AnimatedSprite10" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 11296, -1056 )
-frame = 3
+frame = 5
 
 [node name="AnimatedSprite5" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 8130, 224 )
-frame = 2
 
 [node name="AnimatedSprite6" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 9541, 224 )
-frame = 2
 
 [node name="AnimatedSprite7" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 11952, -544 )
-frame = 1
+frame = 3
 
 [node name="AnimatedSprite8" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 15050, 1633 )
-frame = 1
+frame = 3
 
 [node name="1_1" type="Sprite" parent="Props"]
 position = Vector2( 5193, -656 )
@@ -517,19 +517,17 @@ texture = ExtResource( 30 )
 
 [node name="AnimatedSprite9" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 3210, 481 )
-frame = 3
+frame = 5
 
 [node name="AnimatedSprite13" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 7077, 1504 )
-frame = 2
 
 [node name="AnimatedSprite14" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 9435, 1632 )
-frame = 2
 
 [node name="AnimatedSprite15" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 11512, 1376 )
-frame = 1
+frame = 3
 
 [node name="16" type="Sprite" parent="Props"]
 position = Vector2( 2300, 480 )
@@ -839,7 +837,6 @@ texture = ExtResource( 28 )
 
 [node name="AnimatedSprite4" parent="Props" instance=ExtResource( 10 )]
 position = Vector2( 16288, 2016 )
-frame = 0
 
 [node name="Enemies" type="Node2D" parent="."]
 

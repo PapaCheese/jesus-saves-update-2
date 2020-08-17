@@ -30,14 +30,6 @@
 [ext_resource path="res://JesusSaves/src/Prop/TornFlag.tscn" type="PackedScene" id=28]
 [ext_resource path="res://JesusSaves/src/Prop/CheckPoint.tscn" type="PackedScene" id=29]
 
-
-
-
-
-
-
-
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
@@ -208,7 +200,9 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 } ]
 0/z_index = 0
 
-[node name="Level3" type="Node2D"]
+[node name="Level3" type="Node2D" groups=[
+"Level",
+]]
 
 [node name="SpawnPosition" type="Node2D" parent="."]
 position = Vector2( 128, -8 )
@@ -273,7 +267,6 @@ texture = ExtResource( 4 )
 
 [node name="SkillPrayer" parent="Props" instance=ExtResource( 13 )]
 position = Vector2( 2928, 152 )
-skillNumber = 2
 
 [node name="Icon4" type="Sprite" parent="Props/SkillPrayer"]
 show_behind_parent = true
@@ -305,34 +298,30 @@ __meta__ = {
 
 [node name="AnimatedSprite2" parent="Props" instance=ExtResource( 12 )]
 position = Vector2( 1496, 192 )
-frame = 1
 
 [node name="AnimatedSprite3" parent="Props" instance=ExtResource( 12 )]
 position = Vector2( 722, 480 )
-frame = 1
 
 [node name="AnimatedSprite4" parent="Props" instance=ExtResource( 12 )]
 position = Vector2( 3160, 480 )
-frame = 1
 
 [node name="AnimatedSprite5" parent="Props" instance=ExtResource( 12 )]
 position = Vector2( 2207, 32 )
-frame = 1
 
 [node name="AnimatedSprite6" parent="Props" instance=ExtResource( 12 )]
 position = Vector2( 4369, -64 )
-frame = 1
 
 [node name="AnimatedSprite7" parent="Props" instance=ExtResource( 12 )]
 position = Vector2( 4032, 256 )
-frame = 5
+frame = 2
 
 [node name="AnimatedSprite9" parent="Props" instance=ExtResource( 12 )]
 position = Vector2( 4176, 256 )
+frame = 1
 
 [node name="AnimatedSprite8" parent="Props" instance=ExtResource( 12 )]
 position = Vector2( 2098, 416 )
-frame = 5
+frame = 2
 
 [node name="14" type="Sprite" parent="Props"]
 position = Vector2( 471, 497 )
@@ -385,6 +374,7 @@ flip_h = true
 
 [node name="AnimatedSprite10" parent="Props" instance=ExtResource( 28 )]
 position = Vector2( 5104, 160 )
+frame = 5
 
 [node name="8" type="Sprite" parent="Props/AnimatedSprite10"]
 position = Vector2( -432, 16 )
@@ -392,6 +382,7 @@ texture = ExtResource( 27 )
 
 [node name="Flag" parent="Props" instance=ExtResource( 29 )]
 position = Vector2( 2144, 248 )
+frame = 4
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -551,11 +542,11 @@ position = Vector2( 943, 457 )
 
 [node name="CrossSteel" parent="Weapons" instance=ExtResource( 15 )]
 position = Vector2( 1568, -544 )
-damage = 35
+damage = 15.0
 
 [node name="CrossSteelSharp" parent="Weapons" instance=ExtResource( 19 )]
 position = Vector2( 4464, -704 )
-damage = 40
+damage = 15.0
 
 [node name="SpellDamage" type="Node2D" parent="."]
 

@@ -53,16 +53,9 @@
 [ext_resource path="res://JesusSaves/src/Spell/SpellDamageLoot.tscn" type="PackedScene" id=51]
 [ext_resource path="res://JesusSaves/src/Prop/TornFlag.tscn" type="PackedScene" id=52]
 
-
-
-
-
-
-
-
-
-
-[node name="Level5" type="Node2D"]
+[node name="Level5" type="Node2D" groups=[
+"Level",
+]]
 
 [node name="SpawnPosition" type="Node2D" parent="."]
 position = Vector2( -363, -44 )
@@ -251,15 +244,15 @@ texture = ExtResource( 32 )
 
 [node name="Flag" parent="Props" instance=ExtResource( 7 )]
 position = Vector2( 2664, 152 )
-frame = 5
+frame = 4
 
 [node name="Flag2" parent="Props" instance=ExtResource( 7 )]
 position = Vector2( 6728, 152 )
-frame = 5
+frame = 4
 
 [node name="Flag3" parent="Props" instance=ExtResource( 7 )]
 position = Vector2( 10464, 120 )
-frame = 1
+frame = 0
 
 [node name="Box10" type="Sprite" parent="Props"]
 position = Vector2( 3480, 176 )
@@ -399,7 +392,6 @@ texture = ExtResource( 20 )
 
 [node name="SkillPrayer" parent="Props" instance=ExtResource( 48 )]
 position = Vector2( 3216, 56 )
-skillNumber = 3
 
 [node name="Icon5" type="Sprite" parent="Props/SkillPrayer"]
 show_behind_parent = true
@@ -418,7 +410,6 @@ __meta__ = {
 
 [node name="AnimatedSprite4" parent="Props" instance=ExtResource( 52 )]
 position = Vector2( 14872, 96 )
-frame = 1
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -596,11 +587,10 @@ position = Vector2( 13344, 104 )
 
 [node name="CrossSteelSharp" parent="Weapons" instance=ExtResource( 8 )]
 position = Vector2( 4720, -416 )
-damage = 50
+damage = 15.0
 
 [node name="CrossGold" parent="Weapons" instance=ExtResource( 37 )]
 position = Vector2( 9136, -744 )
-damage = 60
 
 [node name="SpellDamage" type="Node2D" parent="."]
 

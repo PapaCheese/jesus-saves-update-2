@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://JesusSaves/assets/art/tileset/hell/tree/7.png" type="Texture" id=1]
 [ext_resource path="res://JesusSaves/assets/art/tileset/hell/tree/6.png" type="Texture" id=2]
@@ -52,7 +52,6 @@
 [ext_resource path="res://JesusSaves/assets/art/props/bone.png" type="Texture" id=50]
 [ext_resource path="res://JesusSaves/assets/art/tileset/grass/signs/4_1.png" type="Texture" id=51]
 [ext_resource path="res://JesusSaves/assets/fonts/font.tres" type="DynamicFont" id=52]
-[ext_resource path="res://JesusSaves/src/Level/SpawnPosition.gd" type="Script" id=53]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 32 )
@@ -244,11 +243,12 @@ shadow_size = 1
 shadow_offset = Vector2( 0, 5 )
 anti_aliasing = false
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" groups=[
+"Level",
+]]
 
 [node name="SpawnPosition" type="Node2D" parent="."]
-position = Vector2( -1233, 143 )
-script = ExtResource( 53 )
+position = Vector2( -1224, 176 )
 
 [node name="LevelEnd" parent="." instance=ExtResource( 46 )]
 position = Vector2( 11429, -227 )
@@ -304,7 +304,7 @@ position = Vector2( 5055, 587 )
 
 [node name="AnimatedSprite5" parent="Props" instance=ExtResource( 34 )]
 position = Vector2( 4995, 400 )
-frame = 1
+frame = 0
 
 [node name="13" type="Sprite" parent="Props"]
 position = Vector2( -1205, 241 )
@@ -621,12 +621,12 @@ texture = ExtResource( 7 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Props"]
 position = Vector2( 4416, 96 )
 frames = SubResource( 8 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="AnimatedSprite2" parent="Props" instance=ExtResource( 34 )]
 position = Vector2( 1593, 96 )
-frame = 1
+frame = 0
 
 [node name="32" type="Sprite" parent="Props"]
 position = Vector2( 9128, 496 )
@@ -768,7 +768,7 @@ texture = ExtResource( 9 )
 
 [node name="AnimatedSprite4" parent="Props" instance=ExtResource( 39 )]
 position = Vector2( 10952, -160 )
-frame = 5
+frame = 4
 
 [node name="Icon2" type="Sprite" parent="Props"]
 modulate = Color( 1, 1, 1, 0.745098 )
@@ -975,11 +975,11 @@ position = Vector2( 5448, 440 )
 
 [node name="Flag" parent="Checkpoints" instance=ExtResource( 36 )]
 position = Vector2( 2453, 340 )
-frame = 6
+frame = 5
 
 [node name="Flag2" parent="Checkpoints" instance=ExtResource( 36 )]
 position = Vector2( 6017, 468 )
-frame = 5
+frame = 4
 
 [node name="OverProps" type="Node2D" parent="."]
 

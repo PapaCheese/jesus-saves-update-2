@@ -36,7 +36,7 @@ const ANIMATIONS = {
 
 # TODO: many of these are not properties of a Player
 # and should be moved to their respective data structures (weapon, spell, skill)
-var last_checkpoint: Vector2
+var last_checkpoint: Vector2 = Vector2()
 var score: int = 0
 var max_health: float = 100.0
 var max_energy: float = 100.0
@@ -95,12 +95,20 @@ func _ready() -> void:
 	gui_health.value = health
 	gui_energy.max_value = energy
 	gui_energy.value = energy
-	last_checkpoint = global_position
-	
-	PlayerMovementSystem.player = self
-	PlayerAbilitySystem.player = self
-	PlayerAttackSystem.player = self
-	PlayerAnimationSystem.player = self
+#	if !last_checkpoint:
+#		last_checkpoint = global_position
+
+	set_process(false)
+	set_physics_process(false)
+	PlayerMovementSystem.set_physics_process(false)
+#	PlayerAbilitySystem.player = self
+#	PlayerAttackSystem.player = self
+#	PlayerAnimationSystem.player = self
+
+func start():
+	set_process(true)
+	set_physics_process(true)
+	PlayerMovementSystem.set_physics_process(true)
 
 func _physics_process(delta: float) -> void:
 	if !should_hover:

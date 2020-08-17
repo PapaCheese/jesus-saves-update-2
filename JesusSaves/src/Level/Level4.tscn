@@ -22,14 +22,9 @@
 [ext_resource path="res://JesusSaves/src/Spell/SpellDamageLoot.tscn" type="PackedScene" id=20]
 [ext_resource path="res://JesusSaves/src/Prop/TornFlag.tscn" type="PackedScene" id=21]
 
-
-
-
-
-
-
-
-[node name="Level4" type="Node2D"]
+[node name="Level4" type="Node2D" groups=[
+"Level",
+]]
 script = ExtResource( 3 )
 
 [node name="SpawnPosition" type="Node2D" parent="."]
@@ -101,10 +96,11 @@ position = Vector2( 2936, 189 )
 
 [node name="Flag" parent="Props" instance=ExtResource( 14 )]
 position = Vector2( 136, -8 )
+frame = 4
 
 [node name="AnimatedSprite4" parent="Props" instance=ExtResource( 21 )]
 position = Vector2( 4408, 192 )
-frame = 0
+frame = 3
 
 [node name="Enemies" type="Node2D" parent="."]
 

@@ -45,13 +45,6 @@
 [ext_resource path="res://JesusSaves/src/Spell/SpellDamageLoot.tscn" type="PackedScene" id=45]
 [ext_resource path="res://JesusSaves/src/Prop/RedYellowFlag.tscn" type="PackedScene" id=46]
 
-
-
-
-
-
-
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 42.0476
 
@@ -153,7 +146,9 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[node name="Level9" type="Node2D"]
+[node name="Level9" type="Node2D" groups=[
+"Level",
+]]
 
 [node name="SpawnPosition" type="Node2D" parent="."]
 position = Vector2( -363, -44 )
@@ -385,22 +380,22 @@ texture = ExtResource( 44 )
 
 [node name="AnimatedSprite2" parent="Props" instance=ExtResource( 46 )]
 position = Vector2( 344, 32 )
-frame = 2
+frame = 0
 
 [node name="AnimatedSprite3" parent="Props" instance=ExtResource( 46 )]
 position = Vector2( 136, 32 )
-frame = 2
+frame = 0
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Weapons" type="Node2D" parent="."]
 
 [node name="GoldCrossLoot" parent="Weapons" instance=ExtResource( 33 )]
+damage = 15.0
 
 [node name="SkillPrayer" type="Area2D" parent="Weapons"]
 position = Vector2( 240, -40 )
 script = ExtResource( 39 )
-skillNumber = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/SkillPrayer"]
 shape = SubResource( 1 )

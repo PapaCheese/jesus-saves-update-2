@@ -7,6 +7,8 @@ func _on_Tween_tween_all_completed() -> void:
 	get_tree().paused = false
 	if color == Color(0, 0, 0, 1):
 		$"/root/Game/Levels".add_child(game.instance())
+		$"/root/Game/Levels/Player".start()
+		EventBus.emit_signal("player_respawn")
 		$"../Splash".hide()
 #		$"../../GUI/Health".visible = true
 #		$"../../GUI/Divinity".visible = true
