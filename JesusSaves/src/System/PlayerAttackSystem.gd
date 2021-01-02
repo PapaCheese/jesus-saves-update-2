@@ -54,9 +54,8 @@ func _light_attack_1() -> void:
 	player.can_attack = false
 
 func _magic_attack_1() -> void:
-	if !player or player.energy <= player.spell_cost and player.skills_acquired <= 0:
+	if !player or player.skills_acquired <= 0 or player.energy <= player.spell_cost :
 		return
-
 	player.skill_timer.start()
 	player.spell_hit()
 

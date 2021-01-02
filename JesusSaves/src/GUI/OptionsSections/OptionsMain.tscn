@@ -10,8 +10,6 @@
 [ext_resource path="res://JesusSaves/src/GUI/OptionsSections/Languages.gd" type="Script" id=8]
 [ext_resource path="res://JesusSaves/src/UserInterface/OptionsMenu/DefaultButton.tscn" type="PackedScene" id=9]
 
-
-
 [node name="OptionsMain" type="VBoxContainer"]
 anchor_left = 0.5
 anchor_right = 0.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://JesusSaves/assets/fonts/font128.tres" type="DynamicFont" id=1]
 [ext_resource path="res://JesusSaves/assets/fonts/bigfont.tres" type="DynamicFont" id=2]
@@ -19,6 +19,24 @@
 [ext_resource path="res://JesusSaves/assets/art/player/player.png" type="Texture" id=17]
 [ext_resource path="res://JesusSaves/assets/fonts/night_train_315.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://JesusSaves/assets/art/background/bg_sky.png" type="Texture" id=19]
+[ext_resource path="res://JesusSaves/assets/art/background/glare.png" type="Texture" id=20]
+
+[sub_resource type="Animation" id=18]
+resource_name = "idle"
+length = 20.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 17 )
@@ -93,7 +111,6 @@ void fragment()
 	}
 	COLOR = pixel_color;
 }"
-custom_defines = ""
 
 [sub_resource type="ShaderMaterial" id=10]
 shader = SubResource( 9 )
@@ -267,42 +284,52 @@ __meta__ = {
 position = Vector2( 479, 312 )
 texture = ExtResource( 19 )
 
+[node name="glare" type="Sprite" parent="Splash"]
+position = Vector2( 480.741, 162.579 )
+rotation = 4.57337
+texture = ExtResource( 20 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Splash/glare"]
+autoplay = "idle"
+anims/idle = SubResource( 18 )
+
 [node name="cloud" type="Sprite" parent="Splash"]
 position = Vector2( 808, 148 )
 texture = ExtResource( 7 )
-offset = Vector2( -0.495869, 0 )
+offset = Vector2( -14.9021, 0 )
 
 [node name="cloud2" type="Sprite" parent="Splash"]
 position = Vector2( 213, 385 )
 texture = ExtResource( 7 )
-offset = Vector2( 1.98347, 0 )
+offset = Vector2( 19.8783, 0 )
 
 [node name="cloud3" type="Sprite" parent="Splash"]
 position = Vector2( 182, 100 )
 texture = ExtResource( 7 )
-offset = Vector2( -4.89796, 0 )
+offset = Vector2( -25.0431, 0 )
 
 [node name="cloud4" type="Sprite" parent="Splash"]
 position = Vector2( 540, 252 )
 texture = ExtResource( 7 )
-offset = Vector2( -9.6, 0 )
+offset = Vector2( -28.6174, 0 )
 
 [node name="cloud5" type="Sprite" parent="Splash"]
 position = Vector2( 755, 481 )
 texture = ExtResource( 7 )
-offset = Vector2( -16.5374, 0 )
+offset = Vector2( -29.9998, 0 )
 
 [node name="Jesus" type="AnimatedSprite" parent="Splash"]
 position = Vector2( 472, 465 )
 frames = SubResource( 7 )
-frame = 1
+frame = 4
 playing = true
+offset = Vector2( 0, -16.0708 )
 
 [node name="JesusSaves" type="Label" parent="Splash"]
 margin_left = 198.0
-margin_top = 43.5
+margin_top = 57.3567
 margin_right = 765.0
-margin_bottom = 203.5
+margin_bottom = 217.357
 custom_fonts/font = ExtResource( 1 )
 text = "JESUS SAVES"
 __meta__ = {
@@ -311,9 +338,9 @@ __meta__ = {
 
 [node name="The" type="Label" parent="Splash"]
 margin_left = 312.0
-margin_top = 257.0
+margin_top = 266.893
 margin_right = 368.0
-margin_bottom = 337.0
+margin_bottom = 346.893
 custom_fonts/font = SubResource( 8 )
 text = "he"
 __meta__ = {
@@ -325,13 +352,13 @@ material = SubResource( 10 )
 position = Vector2( -15, 18.6 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
-offset = Vector2( 0, -0.72 )
+offset = Vector2( 0, -0.175709 )
 
 [node name="World" type="Label" parent="Splash"]
 margin_left = 395.0
-margin_top = 197.6
+margin_top = 203.907
 margin_right = 707.0
-margin_bottom = 357.601
+margin_bottom = 363.908
 custom_fonts/font = ExtResource( 1 )
 text = "WORLD"
 __meta__ = {

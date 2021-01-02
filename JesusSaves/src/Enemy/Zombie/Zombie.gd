@@ -24,7 +24,11 @@ var can_attack: bool = true
 var dead: bool = false
 var knocked_back: bool = false
 var target
+var minDistanceToAttack: float = 50
 var state_machine: StateMachine = StateMachine.new()
+
+
+var bloodSplatterRsc = preload("res://JesusSaves/src/Enemy/BloodSplatter.tscn")
 
 onready var sprite: Sprite = $Sprite
 onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -53,7 +57,7 @@ func _process(delta: float) -> void:
 	if !dead and target and animation_player.current_animation != "hit" and animation_player.current_animation != "attack" and !knocked_back:
 		var dis = global_position - target.global_position
 
-		if dis.x < 50 and dis.x > -50 and can_attack:
+		if dis.x < minDistanceToAttack and dis.x > -minDistanceToAttack and can_attack:
 			play_attack_anim(target)
 		else:
 			var spd = -dis.normalized().x
@@ -140,15 +144,20 @@ func should_patrol() -> bool:
 	return false
 
 func get_hit(body, _damage):
-	if !dead:
-		if !target:
-			target = body
-		health -= _damage
-		if health <= 0:
-			die()
-		animation_player.play("hit")
-		knock_back()
-		hp_bar.value = health
+	if dead:
+		return
+		
+	if !target:
+		target = body
+	health -= _damage
+	if health <= 0:
+		die()
+	animation_player.play("hit")
+	knock_back()
+	
+	hp_bar.value = health
+	
+	spawn_blood_splatter()
 
 func knock_back():
 	knocked_back = true
@@ -201,6 +210,18 @@ func play_attack_anim(body):
 			linear_velocity.x *= -1
 			face_left(!facing_left)
 
+func spawn_something(what, _pos = Vector2()):
+	var obj = what.instance()
+	var pos = position
+	obj.start(pos, sprite.flip_h) 
+	get_parent().add_child(obj)
+
+func spawn_blood_splatter():
+	var pos = position + Vector2(rand_range(5, -5),rand_range(0, -20)) #a bit of randomness to the vertical position
+	spawn_something(bloodSplatterRsc, pos)
+
+
 class HealthComponent extends Resource:
 	var health: float = 100.0
 	var linear_velocity := Vector2()
+
