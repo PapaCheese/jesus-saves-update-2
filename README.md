@@ -3,9 +3,6 @@ Jesus Saves (the World)
 
 # TODO
 
-* Add missing cloud.png, replace clouds.png in SplashScreen.tscn
-* Add missing splash2.png
-
 - Implement State Tree for AI
 - Implement different/unique AI behaviours per enemy
 - Implement boss enemy AI
